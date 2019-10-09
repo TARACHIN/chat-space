@@ -13,7 +13,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :group_users
