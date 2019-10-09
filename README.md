@@ -13,12 +13,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|groupname|integer|null: false|
+|name|integer|null: false|
 
 ### Association
 - has_many :group_users
-- has_many :user, through: :group_users
+- has_many :users, through: :group_users
+- has_many :messages
 
 ## usersテーブル
 
@@ -26,19 +26,21 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|name|string|null: false, index: true|
 
 ### Association
-- has_many :group
-- has_many :message
+- has_many :groups, through: :group_users
+- has_many :group_users
+- has_many :messages
 
 ## messageテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-|text|text|null: false|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
+|text|text||
+|image|string||
 
 ### Association
 - belongs_to :group
