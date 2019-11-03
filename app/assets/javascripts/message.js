@@ -1,5 +1,7 @@
 $(function(){
   function buildHTML(message) {
+    add_image = (message.image) ? `<p class='main-messages__message__image'><img src="${message.image}"></p>` : '';
+  
     var html = 
     `<div class="message">
       <div class="upper-message">
@@ -14,6 +16,7 @@ $(function(){
       <p class="lower-message__content">
       ${ message.content }
       </p>
+      ${add_image}
       </div>
     </div>`
     return html
@@ -34,8 +37,7 @@ $(function(){
     .done(function (data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('#message_content').val("");
-      $('.form__textfield').val('');
+      $('.new_message')[0].reset();
       $('.form__submit').prop('disabled', false);
       $('.messages').animate({ scrollTop: $(".messages")[0].scrollHeight });
       return true
