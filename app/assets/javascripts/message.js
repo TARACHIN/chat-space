@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message) {
-    add_image = (message.image) ? `<p class='main-messages__message__image'><img src="${message.image}"></p>` : '';
+    var addImage = (message.image) ? `<p class='main-messages__message__image'><img src="${message.image}"></p>` : '';
   
     var html = 
     `<div class="message">
@@ -16,7 +16,7 @@ $(function(){
       <p class="lower-message__content">
       ${ message.content }
       </p>
-      ${add_image}
+      ${addImage}
       </div>
     </div>`
     return html
