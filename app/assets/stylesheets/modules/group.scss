@@ -80,6 +80,16 @@ li {
   }
 }
 
+.group{
+  &__name{
+    color: white;
+  }
+
+  &__message{
+    color: white;
+  }
+}
+
 .chat-group-user {
   padding: 0 15px;
   line-height: 50px;
